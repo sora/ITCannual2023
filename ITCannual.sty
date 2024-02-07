@@ -1,0 +1,814 @@
+%%%
+%%% 年報用
+%%%
+%% LaTeX document style `ITCannual', for use with pLaTeX2e.   
+%%  
+%% 情報基盤センター年報用スタイルファイル
+%%
+%% このスタイルファイルは，アスキー版 pLaTeX2e でコンパイルすることを
+%% 前提にして作成されています．
+%%
+%% このファイルを使うときは，次の3行をファイルの先頭に書いてください．
+%%
+%% \documentclass[11pt]{jarticle}
+%% \usepackage{ITCannual}
+%% \usepackage{times}
+%%
+%% 独自のマクロを定義する際には，必ず\begin{document}の前に
+%% まとめて置いてください．
+%%
+%% 情報基盤センター年報は基本的には次の形式をとってください．
+%% 
+%% --------------------------------------------------
+%% \documentclass[11pt]{jarticle}
+%% \usepackage{ITCannual}
+%% 
+%% %%独自のマクロが必要ならばここに置く．
+%% 
+%% \title{XXXXXXXXXXXXXXXXXXXXXX}
+%% % 題名はここで紹介される研究内容全体を表すタイトルにしてください
+%% % 他の研究分野の人がみても、題名をみるだけでどんな研究をやっている
+%% % のか一目でわかるぐらいが理想的です
+%% \author{XXXXXXXXXX}
+%% \begin{document}
+%% \maketitle
+%% 
+%% \section{概要}
+%%
+%% \section{研究内容題目その1}
+%%
+%% \subsection{背景}
+%%
+%% \subsection{内容}
+%%
+%% \subsection{具体的成果}
+%%
+%% \section{研究内容題目その2}
+%%
+%% \subsection{背景}
+%%
+%% \subsection{内容}
+%%
+%% \subsection{具体的成果}
+%%
+%% \section{成果要覧}
+%%
+%% % 該当のないものは適宜削除
+%% \begin{招待}{1}
+%% \bibitem{CInakamura01}
+%% 著者名:
+%% 論文タイトル,掲載誌名,巻,号,ppXX-YY,年月
+%% \end{招待}
+%% 
+%% \begin{受賞}{1}
+%% \bibitem{CPrizeNakamura01}
+%% 受賞者名:
+%% 賞名称,授賞団体,年月
+%% \end{受賞}
+%% 
+%% \begin{著書}{1}
+%% \bibitem{CBnakamura01}
+%% 著者名:
+%% 書名,出版社,出版時期
+%% \end{著書}
+%% 
+%% \begin{査読付}{1}
+%% \bibitem{CRnakamura01}
+%% 著者名:
+%% 論文タイトル,掲載誌名,巻,号,ppXX-YY,年月
+%% \end{査読付}
+%% 
+%% \begin{公開}{1}
+%% \bibitem{COnakamura01}
+%% 作者名:
+%% 公開ソフトウェア名,その他情報,年月
+%% \end{公開}
+%% 
+%% \begin{特許}{1}
+%% \bibitem{CPnakamura01}
+%% 出願者名:
+%% 出願件名,特許番号,状態,年月
+%% \end{特許}
+%% 
+%% \begin{発表}{1}
+%% \bibitem{CHnakamura01}
+%% 発表者名:
+%% 発表タイトル,研究会等名称,発表番号など,場所,年月
+%% \end{発表}
+%% 
+%% \begin{特記}{1}
+%% \bibitem{CSnakamura01}
+%% フリーフォーマット
+%% \end{特記}
+%% 
+%% \begin{報道}{1}
+%% \bibitem{CJnakamura}
+%% 報道媒体名、番組名:
+%% 内容
+%% \end{報道}
+%% 
+%% ・定理類の環境としては definition, lemma, theorem, axiom, conjecture,
+%%   proposition, corollary, problem, example, remark をあらかじめ
+%%   定義しています．必要に応じてお使いください．
+%%
+%% ・図や絵を取り込む場合は，EPS ファイルにして，
+%%     \usepackage{graphicx} をお使い下さい．
+%%     基本的なコマンドは，
+%%      \includegraphics{filename.eps} 
+%%      \includegraphics[width=3cm]{filename.eps}
+%%     です．
+%%
+%%
+%%====================================================================
+
+% This is the LaTeX style file for Annual Report for Information Technology Center
+% of University of Tokyo.  It is nearly identical to the style files for EACL2006,
+% ACL2005, ACL 2002, ACL 2001, ACL 2000, EACL 95 and EACL 99.  The style file for
+% ANZEN Report is also added to the end of this style file.  This is modified
+% to be the same form of the ITC style file 2005.
+%
+
+% This is the LaTeX style file for EACL-95.  It is identical to the
+% style file for ANLP '94 except that the margins are adjusted for A4
+% paper.  -- abney 13 Dec 94
+
+% The ANLP '94 style file is a slightly modified
+% version of the style used for AAAI and IJCAI, using some changes
+% prepared by Fernando Pereira and others and some minor changes 
+% by Paul Jacobs.
+
+% Author information can be set in various styles:
+% For several authors from the same institution:
+% \author{Author 1 \and ... \and Author n \\
+%         Address line \\ ... \\ Address line}
+% if the names do not fit well on one line use
+%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
+% For authors from different institutions:
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \And  ... \And
+%         Author n \\ Address line \\ ... \\ Address line}
+% To start a seperate ``row'' of authors use \AND, as in
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \AND
+%         Author 2 \\ Address line \\ ... \\ Address line \And
+%         Author 3 \\ Address line \\ ... \\ Address line}
+
+% If the title and author information does not fit in the area allocated,
+% place \setlength\titlebox{<new height>} right after
+% \usepackage{acl2000}
+% where <new height> can be something larger than 2.25in
+
+\NeedsTeXFormat{LaTeX2e} \typeout{Document Style `ITCannual'}
+\RequirePackage{ITCannual}
+%%
+\message{
+, Ver0.6 <2007/1/4>  
+}
+%%
+
+ 
+% NOTE:  Some laser printers have a serious problem printing TeX output.
+% These printing devices, commonly known as ``write-white'' laser
+% printers, tend to make characters too light.  To get around this
+% problem, a darker set of fonts must be created for these devices.
+%
+
+%% % Physical page layout - slightly modified from IJCAI by pj
+%% \setlength\topmargin{0.0in} \setlength\oddsidemargin{-0.0in}
+%% \setlength\textheight{9.0in} \setlength\textwidth{6.5in}
+%% \setlength\columnsep{0.2in}
+%% \newlength\titlebox
+%% \setlength\titlebox{2.25in}
+%% \setlength\headheight{0pt}   \setlength\headsep{0pt}
+%% %\setlength\footheight{0pt}
+%% \setlength\footskip{0pt}
+%% \thispagestyle{empty}      \pagestyle{empty}
+%% \flushbottom \twocolumn \sloppy
+
+%% Original A4 version of page layout
+%% \setlength\topmargin{-0.45cm}    % changed by Rz  -1.4
+%% \setlength\oddsidemargin{.8mm}   % was -0cm, changed by Rz
+%% \setlength\textheight{23.5cm} 
+%% \setlength\textwidth{15.8cm}
+%% \setlength\columnsep{0.6cm}  
+%% \newlength\titlebox 
+%% \setlength\titlebox{2.00in}
+%% \setlength\headheight{5pt}   
+%% \setlength\headsep{0pt}
+%% \setlength\footheight{0pt}
+%% \setlength\footskip{0pt}
+%% \thispagestyle{empty}        
+%% \pagestyle{empty}
+
+% A4 modified by Eneko
+\setlength{\paperwidth}{21cm}   % A4
+\setlength{\paperheight}{29.7cm}% A4
+\setlength{\topmargin}{-1in}\addtolength{\topmargin}{2.7cm} % 3cm - 3mm wordにあわせるため3mmひいている
+\setlength{\oddsidemargin}{-1in}\addtolength{\oddsidemargin}{2.2cm} % 2.5cm - 3mm wordにあわせるために3mmひいている
+\setlength\textheight{24.3cm} % wordにあわせるために6mmたしている
+\setlength\textwidth{16.6cm} % wordにあわせるために6mmたしている
+\setlength\columnsep{0.6cm}  
+\newlength\titlebox 
+\setlength\titlebox{2.00in}
+\setlength\headheight{0cm}   
+\setlength\headsep{0cm}
+\thispagestyle{empty}        
+\pagestyle{empty}
+
+
+%\flushbottom \twocolumn \sloppy
+\flushbottom \sloppy
+
+% We're never going to need a table of contents, so just flush it to
+% save space --- suggested by drstrip@sandia-2
+\def\addcontentsline#1#2#3{}
+
+% Title stuff, taken from deproc.
+\def\maketitle{\par
+ \begingroup
+   \def\thefootnote{\fnsymbol{footnote}}
+   \def\@makefnmark{\hbox to 0pt{$^{\@thefnmark}$\hss}}
+%   \twocolumn[\@maketitle] \@thanks
+   \@maketitle \@thanks
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\maketitle\relax \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+\def\@maketitle{\vbox to \titlebox{\hsize\textwidth
+ \linewidth\hsize \vskip 0.125in minus 0.125in \centering
+% {\Large\bf \@title \par} \vskip 0.2in plus 1fil minus 0.1in
+ {\LARGE \bf \@title \par} \vskip 0.2in plus 1fil minus 0.1in
+ {\def\and{\unskip\enspace{\rm and}\enspace}%
+  \def\And{\end{tabular}\hss \egroup \hskip 1in plus 2fil 
+           \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\bf}%
+  \def\AND{\end{tabular}\hss\egroup \hfil\hfil\egroup
+          \vskip 0.25in plus 1fil minus 0.125in
+           \hbox to \linewidth\bgroup\large \hfil\hfil
+             \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\bf}
+  \hbox to \linewidth\bgroup\large \hfil\hfil
+    \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\bf\@author 
+                            \end{tabular}\hss\egroup
+    \hfil\hfil\egroup}
+  \vskip 0.3in plus 2fil minus 0.1in
+}}
+
+% margins for abstract
+\renewenvironment{abstract}%
+		 {\centerline{\large\bf Abstract}%
+		  \begin{list}{}%
+		     {\setlength{\rightmargin}{0.6cm}%
+		      \setlength{\leftmargin}{0.6cm}}%
+		   \item[]\ignorespaces}%
+		 {\unskip\end{list}}
+		     
+%\renewenvironment{abstract}{\centerline{\large\bf  
+% Abstract}\vspace{0.5ex}\begin{quote}}{\par\end{quote}\vskip 1ex}
+
+
+% bibliography
+
+%% \def\thebibliography#1{\section*{References}
+%%   \global\def\@listi{\leftmargin\leftmargini
+%%                \labelwidth\leftmargini \advance\labelwidth-\labelsep
+%%                \topsep 1pt plus 2pt minus 1pt
+%%                \parsep 0.25ex plus 1pt \itemsep 0.25ex plus 1pt}
+%%   \list {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+%%     \advance\leftmargin\labelsep\usecounter{enumi}}
+%%     \def\newblock{\hskip .11em plus .33em minus -.07em}
+%%     \sloppy
+%%     \sfcode`\.=1000\relax}
+
+%% \def\@up#1{\raise.2ex\hbox{#1}}
+
+% most of cite format is from aclsub.sty by SMS
+
+% don't box citations, separate with ; and a space
+% also, make the penalty between citations negative: a good place to break
+% changed comma back to semicolon pj 2/1/90
+% \def\@citex[#1]#2{\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+% \def\@citea{}\@cite{\@for\@citeb:=#2\do
+%   {\@citea\def\@citea{;\penalty\@citeseppen\ }\@ifundefined
+%      {b@\@citeb}{{\bf ?}\@warning
+%      {Citation `\@citeb' on page \thepage \space undefined}}%
+% {\csname b@\@citeb\endcsname}}}{#1}}
+
+% don't box citations, separate with ; and a space
+% Replaced for multiple citations (pj) 
+% don't box citations and also add space, semicolon between multiple citations
+%% \def\@citex[#1]#2{\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+%%   \def\@citea{}\@cite{\@for\@citeb:=#2\do
+%%      {\@citea\def\@citea{; }\@ifundefined
+%%        {b@\@citeb}{{\bf ?}\@warning
+%%         {Citation `\@citeb' on page \thepage \space undefined}}%
+%%  {\csname b@\@citeb\endcsname}}}{#1}}
+
+% Allow short (name-less) citations, when used in
+% conjunction with a bibliography style that creates labels like
+%       \citename{<names>, }<year>
+% 
+%% \let\@internalcite\cite
+%% \def\cite{\def\citename##1{##1, }\@internalcite}
+%% \def\shortcite{\def\citename##1{}\@internalcite}
+%% \def\newcite{\def\citename##1{{\frenchspacing##1} (}\@internalciteb}
+
+% Macros for \newcite, which leaves name in running text, and is
+% otherwise like \shortcite.
+%% \def\@citexb[#1]#2{\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+%%   \def\@citea{}\@newcite{\@for\@citeb:=#2\do
+%%     {\@citea\def\@citea{;\penalty\@m\ }\@ifundefined
+%%        {b@\@citeb}{{\bf ?}\@warning
+%%        {Citation `\@citeb' on page \thepage \space undefined}}%
+%% {\csname b@\@citeb\endcsname}}}{#1}}
+%% \def\@internalciteb{\@ifnextchar [{\@tempswatrue\@citexb}{\@tempswafalse\@citexb[]}}
+
+%% \def\@newcite#1#2{{#1\if@tempswa, #2\fi)}}
+
+%% \def\@biblabel#1{\def\citename##1{##1}[#1]\hfill}
+
+%%% More changes made by SMS (originals in latex.tex)
+% Use parentheses instead of square brackets in the text.
+%% \def\@cite#1#2{({#1\if@tempswa , #2\fi})}
+
+% Don't put a label in the bibliography at all.  Just use the unlabeled format
+% instead.
+%% \def\thebibliography#1{\vskip\parskip%
+%% \vskip\baselineskip%
+%% \def\baselinestretch{1}%
+%% \ifx\@currsize\normalsize\@normalsize\else\@currsize\fi%
+%% \vskip-\parskip%
+%% \vskip-\baselineskip%
+%% \section*{References\@mkboth
+%%  {References}{References}}\list
+%%  {}{\setlength{\labelwidth}{0pt}\setlength{\leftmargin}{\parindent}
+%%  \setlength{\itemindent}{-\parindent}}
+%%  \def\newblock{\hskip .11em plus .33em minus -.07em}
+%%  \sloppy\clubpenalty4000\widowpenalty4000
+%%  \sfcode`\.=1000\relax}
+%% \let\endthebibliography=\endlist
+
+%% % Allow for a bibliography of sources of attested examples
+%% \def\thesourcebibliography#1{\vskip\parskip%
+%% \vskip\baselineskip%
+%% \def\baselinestretch{1}%
+%% \ifx\@currsize\normalsize\@normalsize\else\@currsize\fi%
+%% \vskip-\parskip%
+%% \vskip-\baselineskip%
+%% \section*{Sources of Attested Examples\@mkboth
+%%  {Sources of Attested Examples}{Sources of Attested Examples}}\list
+%%  {}{\setlength{\labelwidth}{0pt}\setlength{\leftmargin}{\parindent}
+%%  \setlength{\itemindent}{-\parindent}}
+%%  \def\newblock{\hskip .11em plus .33em minus -.07em}
+%%  \sloppy\clubpenalty4000\widowpenalty4000
+%%  \sfcode`\.=1000\relax}
+%% \let\endthesourcebibliography=\endlist
+
+%% \def\@lbibitem[#1]#2{\item[]\if@filesw 
+%%       { \def\protect##1{\string ##1\space}\immediate
+%%         \write\@auxout{\string\bibcite{#2}{#1}}\fi\ignorespaces}}
+
+%% \def\@bibitem#1{\item\if@filesw \immediate\write\@auxout
+%%        {\string\bibcite{#1}{\the\c@enumi}}\fi\ignorespaces}
+
+% sections with less space
+\def\section{\@startsection {section}{1}{\z@}{-2.0ex plus
+    -0.5ex minus -.2ex}{1.5ex plus 0.3ex minus .2ex}{\Large\bf\raggedright}}
+%    -0.5ex minus -.2ex}{1.5ex plus 0.3ex minus .2ex}{\large\bf\raggedright}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{-1.8ex plus
+    -0.5ex minus -.2ex}{0.8ex plus .2ex}{\large\bf\raggedright}}
+%    -0.5ex minus -.2ex}{0.8ex plus .2ex}{\normalsize\bf\raggedright}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{1.5ex plus
+   0.5ex minus .2ex}{0.5ex plus .2ex}{\normalsize\bf\raggedright}}
+\def\paragraph{\@startsection{paragraph}{4}{\z@}{1.5ex plus
+   0.5ex minus .2ex}{-1em}{\normalsize\bf}}
+\def\subparagraph{\@startsection{subparagraph}{5}{\parindent}{1.5ex plus
+   0.5ex minus .2ex}{-1em}{\normalsize\bf}}
+
+% Footnotes
+\footnotesep 6.65pt %
+\skip\footins 9pt plus 4pt minus 2pt
+\def\footnoterule{\kern-3pt \hrule width 5pc \kern 2.6pt }
+\setcounter{footnote}{0}
+
+% Lists and paragraphs
+\parindent 1em
+\topsep 4pt plus 1pt minus 2pt
+\partopsep 1pt plus 0.5pt minus 0.5pt
+\itemsep 2pt plus 1pt minus 0.5pt
+\parsep 2pt plus 1pt minus 0.5pt
+
+\leftmargin 2em \leftmargini\leftmargin \leftmarginii 2em
+\leftmarginiii 1.5em \leftmarginiv 1.0em \leftmarginv .5em \leftmarginvi .5em
+\labelwidth\leftmargini\advance\labelwidth-\labelsep \labelsep 5pt
+
+\def\@listi{\leftmargin\leftmargini}
+\def\@listii{\leftmargin\leftmarginii
+   \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+   \topsep 2pt plus 1pt minus 0.5pt
+   \parsep 1pt plus 0.5pt minus 0.5pt
+   \itemsep \parsep}
+\def\@listiii{\leftmargin\leftmarginiii
+    \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
+    \topsep 1pt plus 0.5pt minus 0.5pt 
+    \parsep \z@ \partopsep 0.5pt plus 0pt minus 0.5pt
+    \itemsep \topsep}
+\def\@listiv{\leftmargin\leftmarginiv
+     \labelwidth\leftmarginiv\advance\labelwidth-\labelsep}
+\def\@listv{\leftmargin\leftmarginv
+     \labelwidth\leftmarginv\advance\labelwidth-\labelsep}
+\def\@listvi{\leftmargin\leftmarginvi
+     \labelwidth\leftmarginvi\advance\labelwidth-\labelsep}
+
+\abovedisplayskip 7pt plus2pt minus5pt%
+\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip  0pt plus3pt%   
+\belowdisplayshortskip  4pt plus3pt minus3pt%
+
+% Less leading in most fonts (due to the narrow columns)
+% The choices were between 1-pt and 1.5-pt leading
+%% \def\@normalsize{\@setsize\normalsize{11pt}\xpt\@xpt}
+%% \def\small{\@setsize\small{10pt}\ixpt\@ixpt}
+%% \def\footnotesize{\@setsize\footnotesize{10pt}\ixpt\@ixpt}
+%% \def\scriptsize{\@setsize\scriptsize{8pt}\viipt\@viipt}
+%% \def\tiny{\@setsize\tiny{7pt}\vipt\@vipt}
+%% \def\large{\@setsize\large{14pt}\xiipt\@xiipt}
+%% \def\Large{\@setsize\Large{16pt}\xivpt\@xivpt}
+%% \def\LARGE{\@setsize\LARGE{20pt}\xviipt\@xviipt}
+%% \def\huge{\@setsize\huge{23pt}\xxpt\@xxpt}
+%% \def\Huge{\@setsize\Huge{28pt}\xxvpt\@xxvpt}
+
+%% \setlength{\topmargin}{-.3in}
+%% \setlength{\oddsidemargin}{0pt}
+%% \setlength{\evensidemargin}{0pt}
+%% \setlength{\textwidth}{16cm}
+%% \setlength{\textheight}{23cm}
+
+
+\newtheorem{definition}{定義}
+\newtheorem{lemma}{補題}
+\newtheorem{theorem}{定理}
+\newtheorem{axiom}{公理}
+\newtheorem{conjecture}{予想}
+\newtheorem{proposition}{命題}
+\newtheorem{corollary}{系}
+\newtheorem{problem}{問題}
+\newtheorem{example}{例}
+\newtheorem{remark}{注}
+
+%\setcounter{tocdepth}{0} %% 目次の表示のレベルの制御
+
+%% \newcommand{\題名}[1]{
+%% \def\報告題名{#1} 
+%% } 
+
+%% \newcommand{\著者}[1]{
+%% \def\著者名{#1}  
+
+%% %\twocolumn[%
+%% \newlength{\abswidth}
+%% \setlength{\abswidth}{\linewidth}
+%% \addtolength{\abswidth}{-2in}
+%% %% {\LARGE\textit{成果の概要 \vspace{3mm}}}  
+%% \begin{center} 
+%% {\LARGE\bf{\報告題名}} \\\vspace{\baselineskip} 
+%%   {\large\bf{\著者名 } } \\\vspace{2\baselineskip}
+ 
+
+%% \end{center}
+%% %] %%twocolumn
+
+%%   %% カウンタの初期化
+%%   \setcounter{equation}{0}
+%%   \setcounter{figure}{0}
+%%   \setcounter{table}{0}
+%%   \setcounter{footnote}{0}
+%%   \setcounter{section}{0}
+%%   \setcounter{subsection}{0}
+%%   %% theorem 環境でのカウンタの初期化
+%%   \setcounter{definition}{0}
+%%   \setcounter{theorem}{0}
+%%   \setcounter{lemma}{0}
+%%   \setcounter{axiom}{0}
+%%   \setcounter{conjecture}{0}
+%%   \setcounter{proposition}{0}
+%%   \setcounter{corollary}{0}
+%%   \setcounter{problem}{0}
+%%   \setcounter{example}{0}
+%%   \setcounter{remark}{0}
+
+%% } 
+
+% 予算額の表示をやめました。(2001/8/1)
+% \newcommand{\予算}[1]{
+% \begin{tabular}{l|r}\hline
+% 平成12年度 & #1 千円 \\ \hline
+% \end{tabular}
+% } 
+ 
+
+\newenvironment{著書}[1]
+{\subsection*{著書／編集\@mkboth{著書}{著書}}%
+   \list{\@biblabel{著書\@arabic\c@enumiv}}%  
+        {\settowidth\labelwidth{\@biblabel{著書#1}}%  
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}% 
+         \let\p@enumiv\@empty 
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%   
+
+\def\@bibitem##1{\item\if@filesw \immediate\write\@auxout  
+       {\string\bibcite{##1}{著書\the\value{\@listctr}}}\fi\ignorespaces}  
+
+ 
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m} 
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist} 
+\let\@openbib@code\@empty  
+
+
+
+\newenvironment{発表}[1]
+{\subsection*{その他の発表論文\@mkboth{発表}{発表}}%
+   \list{\@biblabel{発表\@arabic\c@enumiv}}%  
+        {\settowidth\labelwidth{\@biblabel{発表#1}}%  
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}% 
+         \let\p@enumiv\@empty 
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%   
+
+\def\@bibitem##1{\item\if@filesw \immediate\write\@auxout  
+       {\string\bibcite{##1}{発表\the\value{\@listctr}}}\fi\ignorespaces}  
+
+ 
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m} 
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist} 
+\let\@openbib@code\@empty  
+
+
+
+\newenvironment{査読付}[1]
+{\subsection*{雑誌以外の査読付論文\@mkboth{査読付}{査読付}}%
+   \list{\@biblabel{査読付\@arabic\c@enumiv}}%  
+        {\settowidth\labelwidth{\@biblabel{査読付#1}}%  
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}% 
+         \let\p@enumiv\@empty 
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%   
+
+\def\@bibitem##1{\item\if@filesw \immediate\write\@auxout  
+       {\string\bibcite{##1}{査読付\the\value{\@listctr}}}\fi\ignorespaces}  
+
+ 
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m} 
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist} 
+\let\@openbib@code\@empty  
+
+
+\newenvironment{雑誌論文}[1]
+{\subsection*{雑誌論文\@mkboth{雑誌論文}{雑誌論文}}%
+   \list{\@biblabel{雑誌論文\@arabic\c@enumiv}}%  
+        {\settowidth\labelwidth{\@biblabel{雑誌論文#1}}%  
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}% 
+         \let\p@enumiv\@empty 
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%   
+
+\def\@bibitem##1{\item\if@filesw \immediate\write\@auxout  
+       {\string\bibcite{##1}{雑誌論文\the\value{\@listctr}}}\fi\ignorespaces}  
+
+ 
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m} 
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist} 
+\let\@openbib@code\@empty  
+
+
+
+
+\newenvironment{招待講演}[1]
+{\subsection*{招待講演\@mkboth{招待講演}{招待講演}}%
+   \list{\@biblabel{招待講演\@arabic\c@enumiv}}% 
+        {\settowidth\labelwidth{\@biblabel{招待#1}}%  
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+
+\def\@bibitem##1{\item\if@filesw \immediate\write\@auxout  
+       {\string\bibcite{##1}{招待講演\the\value{\@listctr}}}\fi\ignorespaces}  
+
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m} 
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+\let\@openbib@code\@empty
+
+
+\newenvironment{招待論文}[1]
+{\subsection*{招待論文\@mkboth{招待論文}{招待論文}}%
+   \list{\@biblabel{招待論文\@arabic\c@enumiv}}% 
+        {\settowidth\labelwidth{\@biblabel{招待論文#1}}%  
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+
+\def\@bibitem##1{\item\if@filesw \immediate\write\@auxout  
+       {\string\bibcite{##1}{招待論文\the\value{\@listctr}}}\fi\ignorespaces}  
+
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m} 
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+\let\@openbib@code\@empty
+
+ 
+\newenvironment{特許}[1] 
+{\subsection*{特許申請／取得\@mkboth{特許}{特許}}%
+   \list{\@biblabel{特許\@arabic\c@enumiv}}%
+        {\settowidth\labelwidth{\@biblabel{特許#1}}%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+
+\def\@bibitem##1{\item\if@filesw \immediate\write\@auxout  
+       {\string\bibcite{##1}{特許\the\value{\@listctr}}}\fi\ignorespaces}  
+
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m} 
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+\let\@openbib@code\@empty
+
+
+\newenvironment{特記}[1] 
+{\subsection*{特記事項\@mkboth{特記}{特記}}%
+   \list{\@biblabel{特記\@arabic\c@enumiv}}%
+        {\settowidth\labelwidth{\@biblabel{特記#1}}%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+
+\def\@bibitem##1{\item\if@filesw \immediate\write\@auxout  
+       {\string\bibcite{##1}{特記\the\value{\@listctr}}}\fi\ignorespaces}  
+
+
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m} 
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+\let\@openbib@code\@empty
+
+
+\newenvironment{公開}[1] 
+{\subsection*{公開ソフトウエア\@mkboth{公開}{公開}}%
+   \list{\@biblabel{公開\@arabic\c@enumiv}}%
+        {\settowidth\labelwidth{\@biblabel{公開#1}}%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+
+\def\@bibitem##1{\item\if@filesw \immediate\write\@auxout  
+       {\string\bibcite{##1}{公開\the\value{\@listctr}}}\fi\ignorespaces}  
+
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m} 
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+\let\@openbib@code\@empty
+
+
+\newenvironment{報道}[1] 
+{\subsection*{報道関連\@mkboth{報道}{報道}}%
+   \list{\@biblabel{報道\@arabic\c@enumiv}}%
+        {\settowidth\labelwidth{\@biblabel{報道#1}}%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+
+\def\@bibitem##1{\item\if@filesw \immediate\write\@auxout  
+       {\string\bibcite{##1}{報道\the\value{\@listctr}}}\fi\ignorespaces}  
+
+
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m} 
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+\let\@openbib@code\@empty
+
+
+
+
+
+\newenvironment{受賞}[1] 
+{\subsection*{受賞関連\@mkboth{受賞}{受賞}}%
+   \list{\@biblabel{受賞\@arabic\c@enumiv}}%
+        {\settowidth\labelwidth{\@biblabel{受賞#1}}%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+
+\def\@bibitem##1{\item\if@filesw \immediate\write\@auxout  
+       {\string\bibcite{##1}{受賞\the\value{\@listctr}}}\fi\ignorespaces}  
+
+
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m} 
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+\let\@openbib@code\@empty
+
+
+
+
+
+
+\newcommand{\groupname}{} 
+\markboth{}{}
+%\pagestyle{myheadings}
+
+% 年報スタイルの部・章・節表示
+
+\renewcommand{\prepartname}{PART}
+\renewcommand{\postpartname}{}
+\renewcommand{\thepart}{\arabic{part}}
+%\renewcommand{\prechaptername}{}
+%\renewcommand{\postchaptername}{}
+%\renewcommand{\thechapter}{}
+%\renewcommand{\thesection}{}
+%\renewcommand{\thesubsection}{\arabic{subsection}}

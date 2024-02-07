@@ -1,0 +1,8 @@
+
+This year, the research concentrated on the principles of heterodyne-mode time-of-flight cameras. Heterodyne-mode time-of-flight cameras encode the target radial velocity into the measurement, which is unique compared with conventional time-of-flight sensing, and is promising for high-speed velocity sensing. The proposed method greatly extends the conventional method, making it more accurate, more robust, and more accessible.
+
+In this study, a new framework that can simultaneously decode distance and velocity from four measurements is built. With a novel theoretical discussion, I proposed a heterodyne frequency that is optimal for velocity sensing. For the first time, it was made clear that the target distance has a huge influence on the velocity sensing precision. Finally, I proposed two decoding methods, including an optimization-based decoding and a fast decoding method. The proposed method is validated on a hardware platform composed of commercially available devices and has obvious improvement compared with conventional work in terms of accuracy and robustness.
+
+This work is the first thorough theoretical discussion on heterodyne-mode time-of-flight cameras for velocity sensing. I pointed out the limitations and mistakes of the conventional work, and proposed an advanced method based on the theoretical discussion. The proposed method is the only method that can make instantaneous, full-field imaging of velocity, which will have a huge impact in the field such as sensing and robotics.
+
+This study is provisionally accepted by a top journal in the related field.
